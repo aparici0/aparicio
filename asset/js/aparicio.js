@@ -1,146 +1,214 @@
-
-            // Cursor point
-            let cursor = document.querySelector('.custom-cursor');
-            let mouseX = 0, mouseY = 0; // Variables para la posición del mouse
-
-            document.addEventListener('mousemove', function(e) {
-                mouseX = e.clientX;
-                mouseY = e.clientY;
+document.addEventListener("DOMContentLoaded", () => {
+    initCursor();
+    initStickyHeader();
+    initNoiseEffect();
+    initRotatingText();
+  });
+  
+  /* -----------------------------------
+     1. Cursor personalizado con seguimiento y clic
+  ----------------------------------- */
+  function initCursor() {
+    const cursor = document.querySelector('.cursor');
+    if (!cursor) return;
+  
+    let mouseX = 0, mouseY = 0;
+    let currentX = 0, currentY = 0;
+    const speed = 0.3;
+  
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      cursor.style.opacity = 1;
+    });
+  
+    function updateCursor() {
+      currentX += (mouseX - currentX) * speed;
+      currentY += (mouseY - currentY) * speed;
+      cursor.style.left = currentX + 'px';
+      cursor.style.top = currentY + 'px';
+      requestAnimationFrame(updateCursor);
+    }
+  
+    requestAnimationFrame(updateCursor);
+  
+    document.addEventListener('mousedown', () => {
+      cursor.style.transform = 'scale(1.5)';
+    });
+  
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = 'scale(1)';
+    });
+  
+    document.addEventListener('pointerleave', () => {
+      cursor.style.opacity = 0;
+    });
+  
+    document.addEventListener('pointerenter', () => {
+      cursor.style.opacity = 1;
+    });
+  }
+  
+  function initStickyHeader() {
+    const header = document.querySelector(".navbar");
+    const body = document.body;
+    let lastScroll = 0;
+    let isVisible = false;
+    const transitionDuration = 300;
+  
+    function updateNavbar() {
+      const currentScroll = window.scrollY;
+      const headerHeight = header.offsetHeight;
+  
+      if (currentScroll <= 0) {
+        // Scroll arriba del todo, quitamos todo
+        header.classList.remove("scrolled", "fixed-top", "nav-hide", "navbar-transitioning");
+        body.style.paddingTop = "0";
+        isVisible = false;
+        lastScroll = currentScroll;
+        return;
+      }
+  
+      if (currentScroll > headerHeight) {
+        if (lastScroll - currentScroll > 20) {
+          // Scroll hacia arriba: mostrar header INMEDIATAMENTE
+          if (!isVisible) {
+            header.classList.add("fixed-top");
+            body.style.paddingTop = `${headerHeight}px`;
+            // Forzar repaint antes de animar
+            requestAnimationFrame(() => {
+              header.classList.add("scrolled");
+              header.classList.remove("nav-hide");
+              isVisible = true;
             });
-
-            function updateCursor() {
-                cursor.style.left = mouseX + 'px';  // Actualiza la posición horizontal
-                cursor.style.top = mouseY + 'px';   // Actualiza la posición vertical
-                requestAnimationFrame(updateCursor); // Llama a la función en cada frame
-            }
-
-            // Inicia el ciclo de animación
-            requestAnimationFrame(updateCursor);
-
-            document.addEventListener('mousedown', function() {
-                cursor.style.transform = 'scale(1.5)'; /* Aumenta el tamaño al hacer clic */
-            });
-
-            document.addEventListener('mouseup', function() {
-                cursor.style.transform = 'scale(1)'; /* Vuelve al tamaño original al soltar */
-            });
-
- 
-            // Script para mostrar/ocultar los headers
-            window.addEventListener('scroll', function() {
-            const noStickyHeader = document.querySelector('.no-sticky-header');
-            const stickyHeader = document.querySelector('.sticky-header');
-            
-            if (window.scrollY > noStickyHeader.offsetHeight) {
-                noStickyHeader.style.display = 'none';
-                stickyHeader.classList.add('active');
-            } else {
-                noStickyHeader.style.display = 'block';
-                stickyHeader.classList.remove('active');
-            }
-            });
-
-            //Ruido imágenes
-            // Seleccionar todas las imágenes y lienzos
-            const images = document.querySelectorAll('.main-image');
-            const canvases = document.querySelectorAll('.noise-overlay');
-
-            // Función para inicializar el ruido en cada imagen
-            function initializeNoise() {
-                images.forEach((image, index) => {
-                    const canvas = canvases[index];
-                    const ctx = canvas.getContext('2d');
-
-                    // Ajustar el tamaño del canvas al de la imagen
-                    canvas.width = image.clientWidth;
-                    canvas.height = image.clientHeight;
-
-                    // Variables para el movimiento suave
-                    let offsetX = 0;
-                    let offsetY = 0;
-                    const movementSpeed = 0.2; // Controla la velocidad del movimiento suave
-
-                    // Función para generar ruido
-                    function generateNoise() {
-                        const imageData = ctx.createImageData(canvas.width, canvas.height);
-                        const data = imageData.data;
-
-                        for (let i = 0; i < data.length; i += 4) {
-                            const value = Math.random() * 255; // Valor aleatorio entre 0 y 255
-                            data[i] = value;     // Rojo
-                            data[i + 1] = value; // Verde
-                            data[i + 2] = value; // Azul
-                            data[i + 3] = 30;    // Opacidad ajustada (0-255) para el efecto de grano
-                        }
-
-                        ctx.putImageData(imageData, 0, 0);
-                    }
-
-                    // Función para calcular el movimiento suave
-                    function updateNoisePosition() {
-                        // Calcular nuevos offsets utilizando un movimiento suave
-                        offsetX += (Math.random() - 0.5) * movementSpeed;
-                        offsetY += (Math.random() - 0.5) * movementSpeed;
-
-                        // Limitar el desplazamiento a un rango pequeño
-                        offsetX = Math.max(-2, Math.min(2, offsetX));
-                        offsetY = Math.max(-2, Math.min(2, offsetY));
-
-                        // Aplicar el desplazamiento al canvas
-                        canvas.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-                    }
-
-                    // Animar el ruido
-                    function animateNoise() {
-                        ctx.clearRect(0, 0, canvas.width, canvas.height); // Limpiar el canvas
-                        generateNoise(); // Generar nuevo ruido
-                        updateNoisePosition(); // Actualizar la posición del ruido;
-                    }
-
-                    // Actualizar el ruido cada 100ms
-                    setInterval(animateNoise, 100);
-                });
-            }
-
-            // Inicializar el ruido al cargar
-            initializeNoise();
-
-            // Texto 
-            "use strict";
-            let words = document.querySelectorAll(".word");
-            words.forEach(word => {
-                    let letters = word.textContent.split("");
-                    word.textContent = "";
-                    letters.forEach(letter => {
-                        let span = document.createElement("span");
-                        span.textContent = letter;
-                        span.className = "letter";
-                        word.append(span);
-                    });
-                });
-            let currentWordIndex = 0;
-            let maxWordIndex = words.length - 1;
-                words[currentWordIndex].style.opacity = "1";
-            let rotateText = () => {
-            let currentWord = words[currentWordIndex];
-            let nextWord = currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
-            // rotate out letters of current word
-            Array.from(currentWord.children).forEach((letter, i) => {
-                        setTimeout(() => {
-                            letter.className = "letter out";
-                        }, i * 80);
-                    });
-            // reveal and rotate in letters of next word
-            nextWord.style.opacity = "1";
-            Array.from(nextWord.children).forEach((letter, i) => {
-                        letter.className = "letter behind";
-                        setTimeout(() => {
-                            letter.className = "letter in";
-                        }, 340 + i * 80);
-                    });
-            currentWordIndex =
-            currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1;
-                };
-            rotateText();
-            setInterval(rotateText, 4000);
-            
+          }
+        } else if (currentScroll - lastScroll > 20) {
+          // Scroll hacia abajo: ocultar header con animación
+          if (isVisible) {
+            header.classList.add("nav-hide");
+            header.classList.remove("scrolled");
+            isVisible = false;
+            // NOTA: No quitamos fixed-top aquí para que reaparezca rápido
+            // fixed-top se quitará solo cuando scroll <= 0
+          }
+        }
+      } else {
+        // Scroll menor que header, quitar fixed-top para evitar solapamiento
+        header.classList.remove("scrolled", "fixed-top", "nav-hide", "navbar-transitioning");
+        body.style.paddingTop = "0";
+        isVisible = false;
+      }
+  
+      lastScroll = currentScroll;
+    }
+  
+    window.addEventListener("scroll", updateNavbar);
+    updateNavbar();
+  }
+  
+  
+  
+  /* -----------------------------------
+     3. Efecto de ruido animado sobre imágenes
+  ----------------------------------- */
+  function initNoiseEffect() {
+    const images = document.querySelectorAll('.main-image');
+    const canvases = document.querySelectorAll('.noise-overlay');
+  
+    if (images.length !== canvases.length) {
+      console.warn("Las cantidades de imágenes y canvas no coinciden.");
+      return;
+    }
+  
+    images.forEach((image, index) => {
+      const canvas = canvases[index];
+      if (!canvas) return;
+  
+      const ctx = canvas.getContext('2d');
+      canvas.width = image.clientWidth;
+      canvas.height = image.clientHeight;
+  
+      let offsetX = 0;
+      let offsetY = 0;
+      const movementSpeed = 0.2;
+  
+      function generateNoise() {
+        const imageData = ctx.createImageData(canvas.width, canvas.height);
+        const data = imageData.data;
+  
+        for (let i = 0; i < data.length; i += 4) {
+          const value = Math.random() * 255;
+          data[i] = value;
+          data[i + 1] = value;
+          data[i + 2] = value;
+          data[i + 3] = 30;
+        }
+  
+        ctx.putImageData(imageData, 0, 0);
+      }
+  
+      function updateNoisePosition() {
+        offsetX += (Math.random() - 0.5) * movementSpeed;
+        offsetY += (Math.random() - 0.5) * movementSpeed;
+        offsetX = Math.max(-2, Math.min(2, offsetX));
+        offsetY = Math.max(-2, Math.min(2, offsetY));
+        canvas.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
+      }
+  
+      function animateNoise() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        generateNoise();
+        updateNoisePosition();
+      }
+  
+      setInterval(animateNoise, 100);
+    });
+  }
+  
+  /* -----------------------------------
+     4. Texto rotativo animado (.word)
+  ----------------------------------- */
+  function initRotatingText() {
+    const words = document.querySelectorAll(".word");
+    if (!words.length) return;
+  
+    words.forEach(word => {
+      const letters = word.textContent.split("");
+      word.textContent = "";
+      letters.forEach(letter => {
+        const span = document.createElement("span");
+        span.textContent = letter;
+        span.className = "letter";
+        word.append(span);
+      });
+    });
+  
+    let currentWordIndex = 0;
+    const maxWordIndex = words.length - 1;
+    words[currentWordIndex].style.opacity = "1";
+  
+    function rotateText() {
+      const currentWord = words[currentWordIndex];
+      const nextWord = currentWordIndex === maxWordIndex ? words[0] : words[currentWordIndex + 1];
+  
+      Array.from(currentWord.children).forEach((letter, i) => {
+        setTimeout(() => {
+          letter.className = "letter out";
+        }, i * 80);
+      });
+  
+      nextWord.style.opacity = "1";
+      Array.from(nextWord.children).forEach((letter, i) => {
+        letter.className = "letter behind";
+        setTimeout(() => {
+          letter.className = "letter in";
+        }, 340 + i * 80);
+      });
+  
+      currentWordIndex = currentWordIndex === maxWordIndex ? 0 : currentWordIndex + 1;
+    }
+  
+    rotateText();
+    setInterval(rotateText, 4000);
+  }
+  
