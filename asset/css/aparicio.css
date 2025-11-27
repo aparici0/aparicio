@@ -1,0 +1,446 @@
+html, body {
+  cursor: none; /* Oculta el cursor predeterminado */
+  color: #26233B;
+}
+
+a, button {
+  cursor: none; /* También oculta el cursor sobre enlaces y botones */
+  text-decoration: none;
+  transition: 0.25s;
+}
+
+h1 { font-size: 3.813rem; }
+h2 { font-size: 3rem; line-height: 72px; font-weight: 800; }
+h1.heading { font-weight:800; }
+h2.heading { text-transform: uppercase; font-weight:800; margin-bottom: 65px;}
+h2.frase { font-weight: 400; }
+h3 { font-size: 2.125rem; letter-spacing: 0.25px; }
+h4 { font-size: 1.5rem; }
+
+.single-span { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.25px; font-weight: 700; }
+.single-heading { font-size: 3rem; letter-spacing: 0.25px; line-height: 4rem; font-weight: 300; }
+.single-heading b { font-weight: 700;}
+
+
+
+
+.card-title a { font-weight: 800; margin-bottom: 12px; color: #26233B; }
+.card-title a:hover, .card:hover .card-title a { color:#FB0040!important; }
+p { font-family: "Mukta", sans-serif; font-size: 1.2rem; font-weight: 300; line-height: 1.7rem; letter-spacing: 0.25px; }
+
+.mb-150 { margin-bottom: 150px; }
+.mt-150 { margin-top: 150px; }
+.mb-80 { margin-bottom: 80px; }
+
+.custom-cursor {
+  width: 20px; /* Tamaño del círculo */
+  height: 20px;
+  border-radius: 50%;
+  background-color: rgba(251, 0, 64, 0.8); /* Color y opacidad */
+  position: fixed;
+  pointer-events: none; /* El cursor no interfiere con clics */
+  transform: translate(-50%, -50%);
+  transition: background-color 0.2s ease, transform 0.1s ease; /* Suavidad */
+  z-index: 99999; /* Asegúrate de que esté en la parte superior */
+}
+
+.nav-link { color: #26233B; font-family: "Alexandria", sans-serif; font-weight: 500; font-size: 15px; letter-spacing: .25px; }
+.nav-link:hover { color: #FB0040; }
+.nav-link.active { color: #FB0040!important; }
+.nav-item { margin-left: 13px; }
+
+.hero-titulo { font-size: 4rem; font-family: "Alexandria", sans-serif; font-weight: 300; }
+.hero-titulo b { font-weight: 600 }
+
+.header-bg-gris { background: linear-gradient(45deg, #F5F4F7, #FAFAFA); border-radius: 20px; margin: 20px; box-sizing: border-box; position: relative; }
+.bg-gris { background: linear-gradient(45deg, #F5F4F7, #FAFAFA); border-radius: 20px; }
+
+
+.hero {
+    height: calc(100vh - 152px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Alínea la imagen hacia el borde derecho */
+  .hero .col-lg-7 {
+    display: flex;
+    justify-content: flex-end; /* Alínea la imagen a la derecha */
+    padding-right: 0; /* Quita el padding derecho */
+  }
+
+  .image-outside {
+    position: absolute;
+    right: 0; /* Ajusta este valor para mover la imagen hacia la derecha */
+    bottom: 0; /* Asegúrate de que quede alineada con la parte inferior del hero */
+    max-width: 39vw; /* Ajusta el tamaño según necesites */
+    height: auto;
+    border-radius: 0 0 20px 0;
+  }
+
+  .sticky-header {
+    position: sticky;
+    top: 0;
+    margin: 20px 20px 0 20px;
+    z-index: 1000;
+    background: linear-gradient(45deg, rgba(245, 244, 247, 0.85), rgba(250, 250, 250, 0.8));
+    backdrop-filter: blur(10px); /* Aplica el efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para navegadores basados en WebKit */
+    display: none;
+    border-radius: 0 0 20px 20px;
+}
+
+.sticky-header.active { display: block; }
+
+.logo-container {
+  display: flex; /* Alinea el logo y el texto horizontalmente */
+  align-items: center; /* Alinea verticalmente el logo y el texto */
+}
+
+.logo-img {
+  width: 40px; /* Tamaño fijo del logotipo */
+  height: auto; /* Mantiene la proporción del logotipo */
+  margin-right: 14px; /* Espacio entre el logo y el texto */
+}
+
+.logo-text {
+  display: flex;
+  text-align: center;
+  flex-direction: column; /* Mantiene el texto en columna */
+  justify-content: center; /* Alinea el texto verticalmente dentro del contenedor */
+  text-transform: uppercase; line-height: 1.2; font-family: "Alexandria", sans-serif; color: #26233B; 
+}
+
+.company-name {
+  font-weight: 700; font-size: 26px; letter-spacing: 1px; margin: 0; letter-spacing: 1.7px;
+}
+
+.image-noise {
+  position: relative;
+  display: inline-block;
+}
+
+.main-image {
+  display: block;
+  width: 100%;
+  height: auto;
+
+}
+
+.noise-overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none; /* Permitir interacciones con la imagen */
+  transition: opacity 0.5s ease; /* Transición suave para el efecto hover */
+}
+
+/* Ocurre al hacer hover sobre la imagen */
+.card-img-container:hover .noise-overlay {
+  opacity: 0; /* Ocultar el ruido */
+}
+
+.image-group {
+  margin: 100px 0;
+  margin-bottom: 100vh;
+  padding: 0 30px;
+}
+
+.tablet-frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Evita interferir con eventos de clic */
+  object-fit: cover; /* Ajusta el frame a los bordes del contenedor */
+}
+
+@media screen and (min-width: 768px) {
+  .image-group {
+    padding: 0 90px;
+  }
+}
+
+.overlapping-images {
+  padding-top: 91.746%;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .overlapping-images {
+    padding-top: 46.03%;
+  }
+}
+
+.image {
+  width: 78.73%;
+  overflow: hidden;
+  position: absolute;
+}
+@media screen and (min-width: 768px) {
+  .image {
+    width: 50%;
+  }
+}
+.img {
+  width: 100%;
+  display: block;
+}
+.image.back-image {
+  left: 0;
+  bottom: 0;
+  transform: translate(0, -17.5%);
+}
+.image.front-image {
+  right: 0;
+  top: 0;
+  transform: translate(0, 20%);
+}
+@media screen and (min-width: 768px) {
+  .image.front-image {
+    width: 57.14%;
+  }
+}
+
+.image-wrapper {
+  transform: scale(1.2);
+}
+
+.img-parallax { width: 100%; }
+.one {
+  z-index: 4;
+}
+.one img { width: 100%;  }
+
+/* TEXT ROTATE *********************************************************************/
+.rotating-text {
+  font-weight: 600;
+  font-size: 36px;
+}
+.rotating-text p {
+  display: inline-flex;
+  margin: 0;
+  vertical-align: top;
+  font-size: 2.5rem; font-family: "Alexandria", sans-serif; font-weight: 200;
+}
+.rotating-text p .word {
+  position: absolute;
+  display: flex;
+  opacity: 0;
+  color: #FB0040;
+}
+.rotating-text p .word .letter {
+  transform-origin: center center 25px;
+}
+.rotating-text p .word .letter.out {
+  transform: rotateX(90deg);
+  transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+}
+.rotating-text p .word .letter.in {
+  transition: 0.38s ease;
+}
+.rotating-text p .word .letter.behind {
+  transform: rotateX(-90deg);
+}
+
+.card { padding: 0; border: none; background: transparent;}
+
+.card-img-container {
+  position: relative;
+  overflow: hidden; /* Asegura que la imagen no se salga del contenedor */
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+.img-zoom {
+  transition: transform 0.4s ease-in-out; /* Transición suave */
+  width: 100%; /* Asegura que la imagen ocupe el ancho completo del contenedor */
+  height: auto;
+}
+
+.img-zoom:hover {
+  transform: scale(1.1); /* Zoom in al pasar el mouse */
+}
+
+
+/* RESPONSIVE **********************************************************************/
+
+  @media (max-width: 576px) { 
+    .hero-titulo {
+        font-size: 10vw;
+    }
+
+    .hero-parrafo {
+        font-size: 5vw; 
+    }
+
+    .image-outside {
+        max-width: 50vw; 
+    }
+
+    .hero {
+        height: calc(100vh - 152px);
+        padding-top: 50px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+      }
+}
+
+
+/* Mira+ ************************************************+*/
+
+.asignatura {
+  padding: 5px 8px;
+  font-size: 13px;
+  color: #000;
+  margin-bottom: .5rem;
+  background-color: #eee;
+  border-left: 4px solid #000;
+}
+
+.asignatura .asignatura-titulo {
+  display: block;
+  margin-bottom: 20px;
+  width: 90%;
+  font-weight: 400;
+  line-height: 130%;
+}
+
+.asignatura .asignatura-titulo.lista-asignatura {
+  margin-bottom: 10px;
+}
+
+.asignatura .asignatura-codigo {
+  font-size: 11px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.asignatura .asignatura-creditos {
+  font-size: 11px;
+  position: relative;
+}
+
+.asignatura .asignatura-creditos::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f005";
+  font-weight: 900;
+  font-size: 10px;
+  display: inline-block;
+  margin-right: 3px;
+}
+
+.asignatura.asignatura-clave .asignatura-codigo::before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f084";
+  font-weight: 900;
+  font-size: 10px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.asignatura-aprobada {
+  border-left: 4px solid #19B745;
+}
+
+.asignatura-aprobada .asignatura-creditos::before {
+  color: #19B745;
+}
+
+.asignatura-aprobada .asignatura-codigo::before {
+  color: #19B745;
+}
+
+.asignatura-en-curso {
+  border-left: 4px solid #FFB800;
+}
+
+.asignatura-en-curso .asignatura-creditos::before {
+  color: #FFB800;
+}
+
+.asignatura-en-curso .asignatura-codigo::before {
+  color: #FFB800;
+}
+
+.asignatura-disponible {
+  background-color: #d9d9d9;
+  border-left: 4px solid #999;
+  position: relative;
+  z-index: 0;
+}
+
+.asignatura-disponible .asignatura-creditos::before {
+  color: #999;
+  font-weight: 400;
+}
+
+.asignatura-disponible .asignatura-codigo::before {
+  color: #999;
+}
+
+.asignatura-disponible.seleccionar-asignatura {
+  border-left-color: #5843BE;
+}
+
+.asignatura-disponible.seleccionar-asignatura .asignatura-fecha {
+  background-color: #5843BE;
+}
+
+.asignatura-disponible.seleccionar-asignatura .asignatura-codigo::before {
+  color: #5843BE;
+}
+
+.asignatura-disponible.seleccionar-asignatura .asignatura-creditos::before {
+  color: #5843BE;
+  font-weight: 900;
+}
+
+.asignatura-disponible.temporada-extraordinaria {
+  border-left-color: #BE4343;
+}
+
+.asignatura-disponible.temporada-extraordinaria .asignatura-fecha {
+  background-color: #BE4343;
+}
+
+.asignatura-disponible.temporada-extraordinaria .asignatura-codigo::before {
+  color: #BE4343;
+}
+
+.asignatura-disponible.temporada-extraordinaria .asignatura-creditos::before {
+  color: #BE4343;
+  font-weight: 900;
+}
+
+.asignatura-disponible.seleccionada::before {
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  font-family: "Font Awesome 5 Free";
+  content: "\f00c";
+  font-weight: 900;
+  color: #FFB800;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border: 3px solid #FFB800;
+  border-radius: 20px;
+  z-index: 1;
+  font-size: 12px;
+  text-align: center;
+}
+
+.asignatura-disponible .asignatura-fecha {
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  padding: 3px 8px 0 8px;
+  margin: 5px -8px -5px -8px;
+  background-color: #999;
+}
