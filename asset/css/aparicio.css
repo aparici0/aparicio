@@ -49,7 +49,7 @@ p {
 }
 
 /* 3. UTILIDADES GENERALES */
-.card { padding: 0; border: none; background: transparent; }
+#card-home .card { padding: 0; border: none; background: transparent; }
 
 article { position: relative; width: 100%; overflow: hidden; height: 80vh; }
 
@@ -136,8 +136,9 @@ article > img.layer-4 {
 .navbar-brand svg, .offcanvas-title svg { width: 32px; max-width: 32px; height: auto; fill: #FB0040; display: block; }
 
 
-.navbar{ background: transparent; transition: top 0.3s ease; padding-top: 1.6rem; padding-bottom: 0; transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
-  will-change: transform, opacity; z-index: 1030;}
+.navbar{ background: transparent; transition: top 0.3s ease; transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out; will-change: transform, opacity; z-index: 1030;}
+.header-bg-gris .navbar { padding-top: 1.6rem; padding-bottom: 0; }
+.header-bg-gris-single .navbar { padding-top: 1.6rem; padding-bottom: 1.6rem; }
 .navbar-nav .nav-link { color: #eee; font-family: var(--bs-font-parrafo); font-weight: 600; font-size: 17px; letter-spacing: .25px; }
 
 .navbar.nav-hide {
@@ -178,6 +179,7 @@ article > img.layer-4 {
 .hero-titulo b { font-weight: 600 }
 
 .header-bg-gris { background-color: #292929; background-image: url(../img/noise.png); border-radius: 20px; margin: 20px; height: calc(100vh - 40px);}
+.header-bg-gris-single { background-color: #292929; background-image: url(../img/noise.png); border-radius: 20px; margin: 20px;}
 .bg-gris { background: linear-gradient(45deg, #FaFaFa, #F7F7F7); border-radius: 20px; }
 .bg-negro { background: linear-gradient(45deg, #292929, #202020); border-radius: 20px 20px 0 0; }
 .bg-negro-noise { background-color: #292929; background-image: url(../img/noise.png);}
@@ -334,7 +336,6 @@ footer .nav .nav-link { color: #eee; }
   transform: rotateX(-90deg);
 }
 
-.card { padding: 0; border: none; background: transparent;}
 
 .card-img-container {
   position: relative;
