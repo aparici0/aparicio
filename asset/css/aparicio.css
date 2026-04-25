@@ -213,12 +213,6 @@ footer .nav .nav-link { color: #eee; }
   transition: opacity 0.5s ease; /* Transición suave para el efecto hover */
 }
 
-.card-img-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-}
-
 /* Ocurre al hacer hover sobre la imagen */
 .card-img-container:hover .noise-overlay {
   opacity: 0; /* Ocultar el ruido */
@@ -342,6 +336,7 @@ footer .nav .nav-link { color: #eee; }
   overflow: hidden; /* Asegura que la imagen no se salga del contenedor */
   border-radius: 20px;
   margin-bottom: 8px;
+  width: 100%;
 }
 
 .img-zoom {
