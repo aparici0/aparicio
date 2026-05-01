@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- SEO -->
+        <meta name="description" content="Carlos Aparicio — Diseñador UX/UI y desarrollador front-end en Viña del Mar. Experiencias visuales centradas en las personas, combinando estrategia, funcionalidad y estética.">
+        <meta name="author" content="Carlos Aparicio">
+
+        <!-- Open Graph -->
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="https://aparici0.github.io/aparicio/">
+        <meta property="og:title" content="Carlos Aparicio — Diseñador UX/UI">
+        <meta property="og:description" content="Experiencias visuales centradas en las personas. Combinando estrategia, funcionalidad, estética y usabilidad.">
+        <meta property="og:image" content="https://aparici0.github.io/aparicio/asset/img/og-image.png">
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="Carlos Aparicio — Diseñador UX/UI">
+        <meta name="twitter:description" content="Experiencias visuales centradas en las personas.">
+        <meta name="twitter:image" content="https://aparici0.github.io/aparicio/asset/img/og-image.png">
+
+        <title>Aparicio — Diseñador UX/UI</title>
+
+        <link rel="shortcut icon" href="asset/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="asset/img/favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="asset/css/bootstrap.css">
+        <link rel="stylesheet" href="asset/css/fonts.css">
+        <link rel="stylesheet" href="asset/css/aparicio.css">
+        <!-- AOS eliminado: reemplazado por GSAP ScrollTrigger -->
+    </head>
+    <body>
+
+        <div class="cursor" aria-hidden="true"></div>
+
+        <section class="header-bg-gris">
+            <header class="navbar navbar-expand-lg" id="mainNavbar">
+                <nav class="container" aria-label="Menu principal">
+                    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html" aria-label="Inicio — Aparicio">
+                        <svg id="aparicio" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 149.8 149.8" aria-hidden="true" focusable="false">
+                            <path class="st0" d="M86.9.4h-39.8l32.7,78c-2.6-.3-5.3-.5-8-.5C32.4,78,.4,110,.4,149.4h36.5c0-19.3,15.5-34.9,34.9-34.9s34.9,15.6,34.9,34.9h42.7L86.9.4Z"/>
+                        </svg>
+                        <span class="fs-4">APARICIO</span>
+                    </a>
+                    <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar1" aria-controls="offcanvasNavbar" aria-label="Abrir menú de navegación">
+                        <span class="fs-6 pe-1">Menu</span>
+                    </button>
+                    
+                    <div class="collapse navbar-collapse d-none d-lg-flex" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
+                            <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+                            <li class="nav-item"><a class="nav-link" href="docencia.html">Docencia</a></li>
+                            <!-- FIXED: contacto.php → contacto.html (PHP no funciona en GitHub Pages) -->
+                            <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar1" aria-labelledby="offcanvasNavbar1Label">
+                <div class="offcanvas-header">
+                    <span class="offcanvas-title" id="offcanvasNavbar1Label">
+                        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 149.8 149.8" aria-hidden="true">
+                            <path class="st0" d="M86.9.4h-39.8l32.7,78c-2.6-.3-5.3-.5-8-.5C32.4,78,.4,110,.4,149.4h36.5c0-19.3,15.5-34.9,34.9-34.9s34.9,15.6,34.9,34.9h42.7L86.9.4Z"/>
+                        </svg>
+                    </span>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item"><a class="nav-link" href="sobre-mi.html">Sobre mí</a></li>
+                        <li class="nav-item"><a class="nav-link" href="proyectos.html">Proyectos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="docencia.html">Docencia</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="hero">
+                    <div class="row d-flex align-items-center justify-content-between">
+                        <div class="col-md-5 js-hero-text">
+                            <!-- h1 en la home — mejor para SEO que h2 -->
+                            <h1 class="hero-titulo mb-3"><b>Experiencias visuales</b> centrada en las personas</h1>
+                            <div class="rotating-text">
+                                <p>Combinando</p>
+                                <p>
+                                    <span class="word">estrategia</span>
+                                    <span class="word">funcionalidad</span>
+                                    <span class="word">estética</span>
+                                    <span class="word">usabilidad</span>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="article js-hero-image">
+                                <div class="btl-1">
+                                    <!--
+                                        Las capas van de la 5 (fondo) a la 0 (frente).
+                                        El parallax GSAP mueve cada capa a velocidad distinta.
+                                        Solo la capa 0 (frente) y la 5 (fondo) llevan alt descriptivo.
+                                        Las intermedias son decorativas: aria-hidden="true".
+                                    -->
+                                    <img class="alayer alayer-5" src="asset/img/hero/5.png" alt="Fondo de composición — ilustración de interfaz digital" />
+                                    <img class="alayer alayer-4" src="asset/img/hero/4.png" alt="" aria-hidden="true" />
+                                    <img class="alayer alayer-3" src="asset/img/hero/3.png" alt="" aria-hidden="true" />
+                                    <img class="alayer alayer-2" src="asset/img/hero/2.png" alt="" aria-hidden="true" />
+                                    <img class="alayer alayer-1" src="asset/img/hero/1.png" alt="" aria-hidden="true" />
+                                    <img class="alayer alayer-0" src="asset/img/hero/0.png" alt="Carlos Aparicio — Diseñador UX/UI y docente en Duoc UC" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <main>
+            <div class="py-5">
+                <div class="container">
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-lg-8 py-5 js-reveal">
+                            <h2 class="display-6">Cada proyecto es una oportunidad para resolver problemas reales de forma creativa y estratégica, generando valor tanto para las personas que usan el producto como para el negocio que lo sostiene.</h2>
+                        </div>
+                    </div>
+                    <div class="row py-5">
+                        <div class="col-md-6 col-lg-4 pt-md-0 pt-5 js-pillar">
+                            <span class="h5 fw-lighter border-bottom border-dark">01.</span>
+                            <h3 class="py-5">Diseñar con propósito</h3>
+                            <p>Antes de crear, escucho. Cada proyecto comienza con preguntas que me permiten comprender a fondo el contexto, los usuarios y los objetivos del negocio. Diseñar con propósito significa alinear cada decisión visual y funcional con un impacto real.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 pt-md-4 pt-5 js-pillar">
+                            <span class="h5 fw-lighter border-bottom border-dark">02.</span>
+                            <h3 class="py-5">Colaboración constante</h3>
+                            <p>Creo en el diseño como un proceso compartido. Trabajo en sintonía con clientes, usuarios y equipos para construir soluciones integradas que se sostienen en el tiempo. La co-creación no solo enriquece el resultado, también lo hace más relevante.</p>
+                        </div>
+                        <div class="col-md-6 col-lg-4 pt-md-5 pt-5 js-pillar">
+                            <span class="h5 fw-lighter border-bottom border-dark">03.</span>
+                            <h3 class="py-5">Simplicidad con sentido</h3>
+                            <p>Menos, pero mejor. Busco que las interfaces sean claras, intuitivas y centradas en lo esencial. La simplicidad no es solo una cuestión estética, es una herramienta para mejorar la experiencia, reducir la fricción y comunicar con claridad.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="my-5">
+                <div class="container" id="card-home">
+                    <div class="row">
+                        <div class="col-12 js-reveal">
+                            <h2 class="mb-5">Últimos Proyectos</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mt-3 mb-5 js-card">
+                            <div class="card">
+                                <div class="card-img-container image-noise">
+                                    <div class="img-parallax one">
+                                        <a href="debuenamano.html">
+                                            <img src="asset/img/portafolio/debuenamano/cover_debuenamano.png" class="card-img-top img-zoom main-image ione" alt="De Buena Mano — Marketplace para compra y venta de productos de bebés y niños">
+                                        </a>
+                                    </div>
+                                    <canvas class="noise-overlay"></canvas>
+                                    <img class="tablet-frame" src="asset/img/portafolio/ipad.svg" alt="" aria-hidden="true">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="debuenamano.html">De Buena Mano</a></h4>
+                                    <p class="card-text">Plataforma marketplace orientado a la compra y venta de productos nuevos y semi nuevos para bebés y niños</p>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="col-lg-6 mt-3 mb-5 js-card">
+                            <div class="card">
+                                <div class="card-img-container image-noise">
+                                    <div class="img-parallax one">
+                                        <a href="mira+.html">
+                                            <img src="asset/img/portafolio/mira+/cover_mira+.png" class="card-img-top img-zoom main-image ione" alt="Mira+ — Pre inscripción de asignaturas para estudiantes de Duoc UC">
+                                        </a>
+                                    </div>
+                                    <canvas class="noise-overlay"></canvas>
+                                    <img class="tablet-frame" src="asset/img/portafolio/ipad.svg" alt="" aria-hidden="true">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="mira+.html">Mira+</a></h4>
+                                    <p class="card-text">Plataforma de pre inscripción de asignaturas para estudiantes del Instituto Profesional Duoc UC</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 mt-3 mb-5 js-card">
+                            <div class="card">
+                                <div class="card-img-container image-noise">
+                                    <div class="img-parallax one">
+                                        <a href="trapananda.html">
+                                            <img src="asset/img/portafolio/trapananda/cover_trapananda.png" class="card-img-top img-zoom main-image ione" alt="Trapananda — Tienda online de proyectos editoriales desde la Región de Aysén">
+                                        </a>
+                                    </div>
+                                    <canvas class="noise-overlay"></canvas>
+                                    <img class="tablet-frame" src="asset/img/portafolio/ipad.svg" alt="" aria-hidden="true">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="trapananda.html">Trapananda</a></h4>
+                                    <p class="card-text">Sitio web vitrina y tienda online de proyectos editoriales directamente desde la Región de Aysén.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 mt-3 mb-5 js-card">
+                            <div class="card">
+                                <div class="card-img-container image-noise">
+                                    <div class="img-parallax one">
+                                        <a href="pucv.html">
+                                            <img src="asset/img/portafolio/pucv/cover_pucv.png" class="card-img-top img-zoom main-image ione" alt="PUCV — Postulación en línea para Ingresos Complementarios de Admisión">
+                                        </a>
+                                    </div>
+                                    <canvas class="noise-overlay"></canvas>
+                                    <img class="tablet-frame" src="asset/img/portafolio/ipad.svg" alt="" aria-hidden="true">
+                                </div>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="pucv.html">PUCV</a></h4>
+                                    <p class="card-text">Plataforma de postulación en línea para Ingresos Complementarios de Admisión de la PUCV</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section> 
+        </main>
+
+        <footer class="bg-negro-noise py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <nav class="nav" aria-label="Redes sociales">
+                            <a href="https://www.instagram.com/apariciodesign" class="nav-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+                            <a href="https://www.linkedin.com/in/hey-aparicio" class="nav-link" target="_blank" rel="noopener noreferrer">Linkedin</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ─── Scripts — orden corregido ──────────────────────────────
+             jQuery va antes de cualquier script que lo use.
+             GSAP reemplaza al import de Skypack (más estable, sin ESM).
+             AOS eliminado completamente — GSAP ScrollTrigger lo reemplaza.
+        ─────────────────────────────────────────────────────────────── -->
+
+        <!-- 1. Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+        <!-- 2. jQuery — movido antes de aparicio.js y parallax.js -->
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+        <!-- 3. GSAP core + plugins (reemplaza el import ESM de Skypack) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+        <!-- 4. simple-parallax (usado por parallax.js — mantener hasta migrar) -->
+        <script src="https://cdn.jsdelivr.net/npm/simple-parallax-js@5.3.0/dist/simpleParallax.min.js"></script>
+
+        <!-- 5. Tus scripts personalizados -->
+        <script src="asset/js/aparicio.js"></script>
+        <script src="asset/js/parallax.js"></script>
+
+        <script>
+            gsap.registerPlugin(ScrollTrigger);
+
+            /* ═══════════════════════════════════════════════════════════
+               1. CURSOR PERSONALIZADO
+               El div .cursor sigue al puntero con inercia (ease power3).
+               Se escala al pasar sobre elementos interactivos.
+               Solo activo en dispositivos con puntero fino (no touch).
+            ═══════════════════════════════════════════════════════════ */
+            const cursor = document.querySelector('.cursor');
+            if (cursor && window.matchMedia('(pointer: fine)').matches) {
+                gsap.set(cursor, { xPercent: -50, yPercent: -50 });
+
+                window.addEventListener('pointermove', (e) => {
+                    gsap.to(cursor, {
+                        x: e.clientX,
+                        y: e.clientY,
+                        duration: 0.35,
+                        ease: 'power3.out'
+                    });
+                });
+
+                // Escalar cursor sobre links, botones y cards
+                document.querySelectorAll('a, button, .card').forEach(el => {
+                    el.addEventListener('mouseenter', () =>
+                        gsap.to(cursor, { scale: 2.5, duration: 0.3, ease: 'power2.out' })
+                    );
+                    el.addEventListener('mouseleave', () =>
+                        gsap.to(cursor, { scale: 1, duration: 0.3, ease: 'power2.out' })
+                    );
+                });
+            }
+
+            /* ═══════════════════════════════════════════════════════════
+               2. ANIMACIÓN DE ENTRADA DEL HERO
+               Timeline encadenado: texto → imagen, con overlap suave.
+               Se ejecuta una sola vez al cargar la página.
+            ═══════════════════════════════════════════════════════════ */
+            const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+            heroTl
+                .from('.hero-titulo', { y: 60, opacity: 0, duration: 1 })
+                .from('.rotating-text', { y: 30, opacity: 0, duration: 0.8 }, '-=0.5')
+                .from('.js-hero-image', { x: 50, opacity: 0, duration: 1 }, '-=0.7');
+
+            /* ═══════════════════════════════════════════════════════════
+               3. PARALLAX MULTICAPA DEL HERO (mousemove)
+               Cada .alayer-N se mueve a velocidad distinta según su índice.
+               alayer-0 = frente (mayor movimiento)
+               alayer-5 = fondo (menor movimiento)
+               Genera ilusión de profundidad 3D real sin CSS transform manual.
+               También actualiza --x / --y para efectos CSS en aparicio.css.
+            ═══════════════════════════════════════════════════════════ */
+            const layers = document.querySelectorAll('.alayer');
+
+            // Profundidad por índice de capa: 0=frente (más movimiento), 5=fondo (menos)
+            const depthMap = [0.038, 0.026, 0.017, 0.011, 0.006, 0.002];
+
+            window.addEventListener('pointermove', (e) => {
+                const cx = e.clientX - window.innerWidth / 2;
+                const cy = e.clientY - window.innerHeight / 2;
+
+                layers.forEach((layer) => {
+                    const match = layer.className.match(/alayer-(\d)/);
+                    const idx   = match ? parseInt(match[1]) : 0;
+                    const depth = depthMap[idx] ?? 0.01;
+
+                    gsap.to(layer, {
+                        x: cx * depth,
+                        y: cy * depth,
+                        duration: 0.9,
+                        ease: 'power2.out'
+                    });
+                });
+
+                // Mantener compatibilidad con efectos CSS que usen --x y --y
+                gsap.set(document.documentElement, {
+                    '--x': gsap.utils.mapRange(0, window.innerWidth, -1, 1, e.clientX),
+                    '--y': gsap.utils.mapRange(0, window.innerHeight, -1, 1, e.clientY)
+                });
+            });
+
+            /* ═══════════════════════════════════════════════════════════
+               4. SCROLL REVEALS CON SCROLLTRIGGER (reemplaza AOS)
+               Más control, sin dependencia extra, y compatible con el
+               resto de animaciones GSAP. Los data-aos-* ya no se usan.
+            ═══════════════════════════════════════════════════════════ */
+
+            // Párrafo introductorio
+            gsap.from('.js-reveal', {
+                scrollTrigger: {
+                    trigger: '.js-reveal',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                y: 50, opacity: 0, duration: 1, ease: 'power3.out'
+            });
+
+            // Los tres pilares — aparecen en stagger secuencial
+            gsap.from('.js-pillar', {
+                scrollTrigger: {
+                    trigger: '.js-pillar',
+                    start: 'top 85%',
+                    toggleActions: 'play none none none'
+                },
+                y: 60, opacity: 0, stagger: 0.2, duration: 0.9, ease: 'power3.out'
+            });
+
+            // Cards de proyectos — stagger diagonal
+            gsap.from('.js-card', {
+                scrollTrigger: {
+                    trigger: '#card-home',
+                    start: 'top 80%',
+                    toggleActions: 'play none none none'
+                },
+                y: 80, opacity: 0, stagger: 0.15, duration: 1, ease: 'power3.out'
+            });
+
+            /* ═══════════════════════════════════════════════════════════
+               5. HOVER EN CARDS — LIFT SUAVE
+               Levanta cada card 8px al pasar el mouse.
+               Se puede extender para rotar levemente o escalar la imagen.
+            ═══════════════════════════════════════════════════════════ */
+            document.querySelectorAll('.js-card .card').forEach(card => {
+                card.addEventListener('mouseenter', () =>
+                    gsap.to(card, { y: -8, duration: 0.35, ease: 'power2.out' })
+                );
+                card.addEventListener('mouseleave', () =>
+                    gsap.to(card, { y: 0, duration: 0.4, ease: 'power2.inOut' })
+                );
+            });
+
+            /* ═══════════════════════════════════════════════════════════
+               6. NAVBAR — ENCOGIMIENTO AL SCROLL
+               Agrega clase "scrolled" al nav para estilizar en aparicio.css.
+               Ejemplo: #mainNavbar.scrolled { padding-block: 0.5rem; box-shadow: ... }
+            ═══════════════════════════════════════════════════════════ */
+            ScrollTrigger.create({
+                start: 'top -80',
+                onEnter:     () => document.getElementById('mainNavbar').classList.add('scrolled'),
+                onLeaveBack: () => document.getElementById('mainNavbar').classList.remove('scrolled')
+            });
+        </script>
+    </body>
+</html>
